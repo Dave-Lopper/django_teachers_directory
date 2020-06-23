@@ -13,6 +13,7 @@ With this tool you can :
 ### Quickstart
 - `pip install -r requirements.txt`  
 - `python manage.py runserver`
+- Hit ***http://127.0.0.1:8000/directory***
 
 ### CSV file structure
 ![CSV file for bulk insert structure](/directory/static/csv-structure.png "CSV file for bulk insert structure")
