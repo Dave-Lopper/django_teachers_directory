@@ -29,5 +29,7 @@ def index(request):
     teachers = Teacher.objects.all()
     subjects = Subject.objects.all()
     return render(
-        request, "index.html", {
-            "subjects": subjects, "teachers": teachers, "form": form})
+        request,
+        "index.html",
+        {"subjects": subjects, "teachers": teachers, "form": form}
+    )

@@ -21,12 +21,12 @@ class Teacher(models.Model):
     phone = models.CharField(
         max_length=16,
         validators=[RegexValidator(
-            r'^\+\d{2,3} [\d ]{9,15}$',
-            message="Phone number must be entered in the format: '+971 55 555 5555'."  # noqa:E501
+            r'^\+\d{2,3}-\d{3}-\d{3}-\d{3}$',
+            message="Phone number must be entered in the format: '+971-555-555-555'."  # noqa:E501
         )]
     )
 
-    room = models.IntegerField()
+    room = models.CharField(max_length=5)
     subjects = models.ManyToManyField(Subject)
 
     def __str__(self):

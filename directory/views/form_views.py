@@ -2,7 +2,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from ..forms import SubjectCreationForm, TeacherCreationForm, RegisterForm
+from ..forms import (
+    SubjectCreationForm,
+    TeacherCreationForm,
+    TeacherImportForm,
+    RegisterForm)
 
 
 @login_required
@@ -31,6 +35,18 @@ def teacher_add(request):
 
     form = TeacherCreationForm()
     return render(request, "teacher-add.html", {"form": form})
+
+
+@login_required
+def teacher_bulk_add(request):
+    if request.method == 'POST':
+        form = TeacherImportForm(request.POST, request.FILES)
+        if form.is_valid():
+            return redirect('directory:index')
+        else:
+            return render(request, 'teacher-import.html', {'form': form})
+    form = TeacherImportForm()
+    return render(request, 'teacher-import.html', {'form': form})
 
 
 def signup(request):

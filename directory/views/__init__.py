@@ -1,6 +1,6 @@
-from .detail_views import teacher, subject
-from .form_views import subject_add, teacher_add, signup
 from .list_views import index
+from .form_views import subject_add, teacher_bulk_add, teacher_add, signup
+from .detail_views import teacher, subject
 
 __all__ = [
     "index",
@@ -8,4 +8,5 @@ __all__ = [
     "subject_add",
     "teacher",
     "teacher_add",
+    "teacher_bulk_add",
     "signup"]

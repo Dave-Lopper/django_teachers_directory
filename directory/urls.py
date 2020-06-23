@@ -9,5 +9,6 @@ urlpatterns = [
     path('teacher/<int:teacher_id>/', views.teacher, name='teacher'),
     path('add-subject/', views.subject_add, name='subject_add'),
     path('add-teacher/', views.teacher_add, name='teacher_add'),
+    path('import-teachers/', views.teacher_bulk_add, name='teacher_bulk_add'),
     path('', views.index, name='index'),
 ]
