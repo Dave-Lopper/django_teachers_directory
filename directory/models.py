@@ -14,7 +14,9 @@ class Teacher(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     profile_picture = models.ImageField(
-        upload_to="directory/avatars", blank=True)
+        upload_to="directory/avatars",
+        blank=True,
+        default='directory/default-avatar.png')
     email = models.CharField(max_length=200, unique=True)
     phone = models.CharField(
         max_length=16,

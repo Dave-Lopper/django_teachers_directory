@@ -13,7 +13,7 @@ choices_subject.insert(0, (0, "All"))
 choices_alphabet.insert(0, ("all", "No filter"))
 
 
-class FilterTeacherForm(forms.Form):
+class TeacherFilterForm(forms.Form):
     first_name = forms.ChoiceField(
         choices=choices_alphabet,
         widget=forms.Select(attrs={"class": "ml-3 form-control"})

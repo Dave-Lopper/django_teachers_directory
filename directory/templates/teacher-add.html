@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row">
+    <h2 class="col-8 offset-2 mb-5">Adding a teacher</h2>
+</div>
+<div class="row">
+    <form method="post" class="col-8 offset-2" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <small style="color: grey">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+            <div class="alert alert-danger mt-3" role="alert">{{ error }}</div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-secondary">Add</button>
+
+    </form>
+</div>
+{% endblock %}
