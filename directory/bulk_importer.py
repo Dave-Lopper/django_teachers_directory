@@ -42,8 +42,6 @@ def bulk_insert(csv_file, zip_file):
                             row[index].split(', ')
                     else:
                         teachers[line_count - 1][columns[index]] = row[index]
-                        print(teachers[line_count - 1])
-                        print()
         line_count += 1
 
     with ZipFile(zip_file, 'r') as zip:
