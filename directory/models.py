@@ -6,6 +6,9 @@ class Subject(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=300)
 
+    def __str__(self):
+        return self.name
+
 
 class Teacher(models.Model):
     first_name = models.CharField(max_length=50)
@@ -24,3 +27,6 @@ class Teacher(models.Model):
 
     room = models.IntegerField()
     subjects = models.ManyToManyField(Subject)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
