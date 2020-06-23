@@ -24,7 +24,7 @@ def bulk_insert(csv_file, zip_file):
         )
     )
     if len(filtered_data) < 1:
-        return 0
+        return 1
 
     line_count = 0
     for row in filtered_data:
@@ -81,4 +81,4 @@ def bulk_insert(csv_file, zip_file):
                         File(open(location, 'rb'))
                     )
                 new_teacher.save()
-        return 1
+        return 0

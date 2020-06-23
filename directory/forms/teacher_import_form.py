@@ -46,7 +46,7 @@ class TeacherImportForm(forms.Form):
 
         return_value = bulk_insert(csv_reader, zip_file)
 
-        if return_value == 0:
+        if return_value == 1:
             raise forms.ValidationError(
                 {"CSV": "Please provide a valid CSV file"}
             )
