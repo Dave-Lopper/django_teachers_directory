@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ teacher.first_name }} {{ teacher.last_name }}{% endblock %}
+{% block content %}
+<main class="row pt-5">
+    <div class="col-5 d-flex justify-content-end">
+        <img src="{{ teacher.profile_picture.url }}"
+            alt="{{ teacher.first_name }} {{ teacher.last_name }}"
+            title="{{ teacher.first_name }} {{ teacher.last_name }}"
+            class="avatar-large" />
+    </div>
+    <div class="col-7 d-flex flex-column">
+        <h2>{{ teacher.first_name }} {{ teacher.last_name }}</h2>
+
+        <h4 class="mt-4 mb-3">Details :</h4>
+        <p>
+            <b>Email address</b> :
+            <a href="mailto:{{ teacher.email }}">
+                {{ teacher.email }}
+            </a>
+        </p>
+        <p><b>Phone number</b> : {{ teacher.phone }}</p>
+        <p><b>Room number</b> : {{ teacher.room }}</p>
+        <p><b>Subjects</b> :</p>
+        {% if teacher.subjects.all|length > 0 %}
+        <ul>
+            {% for subject in teacher.subjects.all %}
+            <li><a href="{% url 'directory:subject' subject.id %}">{{subject.name}}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>This teacher hasn&apos;t been attributed some subjects !</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

@@ -1,10 +1,24 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 18px;
 }
 
 header {
     background-color: #f1f1f1;
     border-bottom: 1px solid lightgray;
+}
+
+
+img.avatar-thumbnail {
+    max-width: 110px;
+    height: auto;
+    border-radius: 50%;
+} 
+
+img.avatar-large {
+    max-width: 250px;
+    height: auto;
+    margin-right: 35px;
+    border-radius: 50%;
 }

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ subject.name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <main class="col-8 offset-2 d-flex flex-direction-column">
+        <div class="card">
+            <div class="card-header">
+                <h4>{{ subject.name }}</h4>
+            </div>
+            <div class="card-body">
+                {% if subject.description %}
+                {{ subject.description }}
+                {% else %}
+                Oops, looks like this subject has no description yet !
+                {% endif %}
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

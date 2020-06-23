@@ -6,6 +6,43 @@
 <div class="row">
     <main class="col-10">
         <h2>Welcome to the teachers directory !</h2>
+        <p class="mt-3">This is an administration tool, from here it is possible
+            to list and add members from our pedagogic team !</p>
     </main>
+</div>
+<div class="row">
+    <div class="col-8 offset-2">
+        <h4 class="w-100 text-center mt-5 mb-4">Our pedagogic team :</h4>
+        {% if user.is_authenticated %}
+        <p>Welcome {{ user.username }}</p>
+        {% else %}
+        <p>Please <a href="{% url 'directory:signup' %}">log-in</a> to
+            administrate</p>
+        {% endif %}
+    </div>
+</div>
+<div class="row">
+    {% if teachers|length > 0 %}
+    {% for teacher in teachers %}
+    <a href="{% url 'directory:teacher' teacher.id %}" class="col-3 ml-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-center mt-2">
+                    {{ teacher.first_name }} {{ teacher.last_name }}
+                </h5>
+            </div>
+            <div class="card-body d-flex justify-content-center">
+                <img src="{{teacher.profile_picture.url}}"
+                    alt="{{ teacher.first_name }} {{ teacher.last_name }},
+                    member of our pedagogic team"
+                    title="{{ teacher.first_name }} {{ teacher.last_name }},
+                    member of our pedagogic team" class="avatar-thumbnail" />
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    {% else %}
+    <p>Oops, looks like the teachers haven&apos;t been added yet !</p>
+    {% endif %}
 </div>
 {% endblock %}
