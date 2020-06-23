@@ -33,3 +33,11 @@ a.header-title {
 a.header-title:hover {
     text-decoration: none;
 }
+
+nav.header-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

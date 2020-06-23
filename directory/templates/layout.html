@@ -34,9 +34,23 @@
     <body>
         <header class="w-100 d-flex justify-content-between shadow p-2 mb-5
             bg-white rounded">
-            <a href="{% url 'directory:index' %}" class="header-title"><h1
-                    class="ml-3">Teachers
-                    directory</h1></a>
+            <a href="{% url 'directory:index' %}" class="header-title">
+                <h1 class="ml-3">
+                    Teachers directory
+                </h1>
+            </a>
+            {% if user.is_authenticated %}
+            <nav class="header-menu h-100 mt-3">
+                <ul>
+                    <li class="mr-4"><a href="{% url 'directory:logout' %}">Log-out</a></li>
+                    <li class="mr-4"><a href="{% url 'directory:subject_add' %}">Insert
+                        subject</a></li>
+                    <li class="mr-4"><a href="{% url 'directory:teacher_add' %}">Insert
+                    teacher</a></li>
+                    <li class="mr-3"><a href="{% url 'directory:teacher_bulk_add' %}">Import teachers</a></li>
+                </ul>
+            </nav>
+            {% endif %}
         </header>
 
         <div id="content" class="container-fluid">

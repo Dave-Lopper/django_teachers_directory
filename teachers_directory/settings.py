@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/uploads/'
 AVATAR_UPLOAD_FOLDER = "uploads/directory/avatars/"
+LOGIN_REDIRECT_URL = 'directory:index'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

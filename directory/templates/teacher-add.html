@@ -5,7 +5,7 @@
     <h2 class="col-8 offset-2 mb-5">Adding a teacher</h2>
 </div>
 <div class="row">
-    <form method="post" class="col-8 offset-2" enctype="multipart/form-data">
+    <form method="post" class="col-8 offset-2 mb-5" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
         <div class="form-group">
@@ -19,7 +19,8 @@
             {% endfor %}
         </div>
         {% endfor %}
-        <button type="submit" class="btn btn-secondary">Add</button>
+        <button type="submit" class="btn btn-secondary mr-3">Add</button>
+        <a class="btn btn-outline-secondary" href="{% url 'directory:index' %}" role="button">Index</a>
 
     </form>
 </div>

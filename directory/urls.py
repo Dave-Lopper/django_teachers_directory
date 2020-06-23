@@ -4,6 +4,8 @@ from . import views
 
 app_name = 'directory'
 urlpatterns = [
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
     path('signup/', views.signup, name='signup'),
     path('subject/<int:subject_id>/', views.subject, name='subject'),
     path('teacher/<int:teacher_id>/', views.teacher, name='teacher'),
