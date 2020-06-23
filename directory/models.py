@@ -18,11 +18,10 @@ class Teacher(models.Model):
     email = models.CharField(max_length=200, unique=True)
     phone = models.CharField(
         max_length=16,
-        validators=[
-            RegexValidator(
-                r'^\+\d{2,3} [\d ]{9,15}$',
-                message="Phone number must be entered in the format: '+971 55 555 5555'.")
-        ]
+        validators=[RegexValidator(
+            r'^\+\d{2,3} [\d ]{9,15}$',
+            message="Phone number must be entered in the format: '+971 55 555 5555'."  # noqa:E501
+        )]
     )
 
     room = models.IntegerField()

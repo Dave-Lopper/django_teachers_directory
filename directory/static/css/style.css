@@ -22,3 +22,14 @@ img.avatar-large {
     margin-right: 35px;
     border-radius: 50%;
 }
+
+ul.subject_checkboxs {
+    list-style: none;
+}
+
+a.header-title {
+    color: #484848;
+}  
+a.header-title:hover {
+    text-decoration: none;
+}
