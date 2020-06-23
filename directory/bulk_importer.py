@@ -39,7 +39,7 @@ def bulk_insert(csv_file, zip_file):
                 else:
                     if columns[index] == "Subjects taught":
                         teachers[line_count - 1][columns[index]] = \
-                            row[index].split(', ')
+                            row[index].split(',')[0:5]
                     else:
                         teachers[line_count - 1][columns[index]] = row[index]
         line_count += 1
