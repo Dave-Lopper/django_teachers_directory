@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from ..forms import TeacherFilterForm
-from ..models import Teacher
+from ..models import Subject, Teacher
 
 
 def index(request):
@@ -27,4 +27,7 @@ def index(request):
 
     form = TeacherFilterForm()
     teachers = Teacher.objects.all()
-    return render(request, "index.html", {"teachers": teachers, "form": form})
+    subjects = Subject.objects.all()
+    return render(
+        request, "index.html", {
+            "subjects": subjects, "teachers": teachers, "form": form})

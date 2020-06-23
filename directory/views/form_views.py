@@ -2,7 +2,21 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from ..forms import TeacherCreationForm, RegisterForm
+from ..forms import SubjectCreationForm, TeacherCreationForm, RegisterForm
+
+
+@login_required
+def subject_add(request):
+    if request.method == 'POST':
+        form = SubjectCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('directory:index')
+        else:
+            return render(request, "subject-add.html", context={"form": form})
+
+    form = SubjectCreationForm()
+    return render(request, "subject-add.html", {"form": form})
 
 
 @login_required
